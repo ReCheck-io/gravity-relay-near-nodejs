@@ -1,0 +1,16 @@
+{
+  "name": "gravty-relay-near-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "express": "^4.18.1",
+    "near-api-js": "^0.45.1",
+    "near-seed-phrase": "^0.2.0"
+  }
+}

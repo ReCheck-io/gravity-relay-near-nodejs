@@ -1,0 +1,10 @@
+module.exports = {
+    networkId: "testnet",
+    gateway: "https://rpc.testnet.near.org",
+    contractMethods: {
+        changeMethods: ["signTerms"],
+        viewMethods: ["validateSignature"]
+    },
+    addressReadWrite: "",
+    privateKey: "",
+}
