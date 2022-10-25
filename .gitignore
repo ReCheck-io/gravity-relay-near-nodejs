@@ -1,5 +1,6 @@
 /.idea
 /config.js
+/package-lock.json
 
 # Logs
 logs
