@@ -6,5 +6,6 @@ module.exports = {
         viewMethods: ["validateSignature"]
     },
     addressReadWrite: "",
+    accountId: "",
     privateKey: "",
 }

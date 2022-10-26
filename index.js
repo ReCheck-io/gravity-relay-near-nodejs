@@ -14,9 +14,7 @@ const getContractForKeyPair = async (secretKey = null) => {
     const nearKeyPair = utils.KeyPair.fromString(secretKey);
 
     const keyStore = new keyStores.InMemoryKeyStore();
-    const accountId = utils.PublicKey.fromString(nearKeyPair.getPublicKey().toString()).data.toString("hex");
-
-    await keyStore.setKey(config.networkId, accountId, nearKeyPair);
+    await keyStore.setKey(config.networkId, config.accountId, nearKeyPair);
 
     const near = await connect({
         deps: {
@@ -26,7 +24,7 @@ const getContractForKeyPair = async (secretKey = null) => {
         networkId: config.networkId
     });
 
-    const account = await near.account(accountId);
+    const account = await near.account(config.accountId);
 
     return new Contract(
         account,
@@ -93,7 +91,7 @@ app.post("/signTerms", async (req, res) => {
 
         let txHash = contractResponse.transaction.hash;
 
-        responseObj.result.txReceipt = await contract.near.connection.provider.txStatus(txHash, contract.account.accountId);
+        responseObj.result.txReceipt = await contract.account.connection.provider.txStatus(txHash, contract.account.accountId);
 
         res.json(responseObj);
     } catch (error) {
