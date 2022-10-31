@@ -82,7 +82,7 @@ app.post("/signTerms", async (req, res) => {
             contractId: config.addressReadWrite,
             methodName: action,
             args: {
-                signer_string: pubKey,
+                signer_key_string: pubKey,
                 signer_signature_string: signature,
                 terms_hash_string: tosHash,
             },
@@ -131,7 +131,7 @@ app.get("/verifySignature", async (req, res) => {
         let contract = await getContractForKeyPair();
 
         const contractResponse = await contract.validateSignature({
-            signer_string: pubKey,
+            signer_key_string: pubKey,
             terms_hash_string: tosHash
         });
 
